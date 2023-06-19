@@ -1,16 +1,12 @@
 package com.epam.utils;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 public class StringUtils {
     public static boolean isPositiveNumber(String str) {
-        if (str == null || str.isEmpty()) {
-            return false;
-        }
-
-        try {
-            int number = Integer.parseInt(str);
-            return number > 0;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+      if (!NumberUtils.isCreatable(str)){
+        return false;
+      }
+      return NumberUtils.createNumber(str).doubleValue() > 0;
     }
 }
